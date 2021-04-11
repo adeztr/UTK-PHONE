@@ -1,0 +1,209 @@
+<html>
+
+	<head>
+		<title>utkphone</title>
+		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+		<link href="styles.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	</head>
+
+ <style>
+ 
+ @font-face {
+  font-family: ifont;
+  src: url(ifont.ttf);
+}
+
+ .phone {
+    position: absolute;
+    background: url(img/iphone.png);
+    right: 0;
+    bottom: 0;
+    width: 500px;
+    height: 1000px;
+    background-size: cover;
+    overflow: hidden;
+ }
+ 
+ .screen {
+     position: absolute;
+    background: url(img/back.jpg);
+    background-size: cover;
+    bottom: 190px;
+    left: 92px;
+    right: 40px;
+    z-index: 10;
+    top: 170px;
+    display: flex;
+    overflow: hidden;
+}
+ 
+ .alt {
+    bottom: 0;
+    position: absolute;
+    margin-left: 10px;
+	
+	}
+	
+	.alt img { margin-left:4px;  margin-right:4px;}
+	
+	 .apps {
+     margin-top:30px;
+    position: absolute;
+   
+	}
+	
+	.apps img { margin-left:10px;}
+	
+	b {    font-family: sans-serif;
+    color: white;
+    position: absolute;
+    left: 20px;
+    bottom: -15px;
+    text-shadow: 0 0 20px black;}
+	
+	
+	.twitter {
+	
+    background: #28aae1;
+    width: 100%;
+    z-index: 10;
+	margin-top:20px;
+	
+	}
+	
+	.twitter_loading { display:none;  margin-top: 40%;}
+	.twitter_header {     width: 100%;
+    background: #fafafa;
+    height: 60px;}
+	
+	.ustbar {
+	    width: 100%;
+    height: 20px;
+    color:white;
+ 	    position: absolute;
+		font-family:ifont;
+		
+		 
+	}
+	.twitter button {
+	    display: block;
+    padding: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: white;
+    font-size: 30px;
+    position: absolute;
+    font-weight: 500;
+    right: 20px;
+    border: none;
+    border-radius: 30px;
+	}
+	
+	
+	
+	.sag {
+	    position: absolute;
+    right: 0;
+	margin-top:2px;
+    margin-right: 10px;}
+	
+	.sol {
+	    position: absolute;
+    left: 0;
+    margin-left: 10px;
+	}
+	
+	#twitterpostarea {
+    width: 95%;
+    margin: 10px;
+    border-radius: 30px;
+    font-size: 24px;
+    border: none;
+    padding: 8px;
+    font-family: sans-serif;
+    height: 100px;
+	}
+	* { font-family:ifont;}
+	
+	.tmenu   {
+	       position: absolute;
+    bottom: 0;
+    width: 95%;
+    margin-left: 10px;
+    margin-bottom: 7px;}
+	.tmenu a {
+	 display: block;
+    background: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 32px;
+    text-decoration: none;
+      border-bottom: 1px solid #e8e8e8;
+    color: #7f7f7f;
+	 
+	font-weight:100;
+	}
+	
+ </style>
+	<body style="display: 1none;">
+	 <div style="zoom: 70%;">
+	 <div class="phone" >
+ 
+ <div class="screen" >
+ <div class="apps" >
+  <a href="javascript:twitter();"><img id="twitter_app" src="img/twitter.png"  style="width:20%;" /> </a>
+  <a href="#"><img src="img/fatura.png" style="width:20%;" /> </a>
+  <a href="#"><img src="img/settings.png" style="width:20%;" /></a>
+  <a href="#"><img src="img/gallery.png" style="width:20%;" /></a>
+ 
+ </div>
+ <div id="ustbar" class="ustbar"><center ><span class="sol">•••••</span>16:00<span class="sag"><i class="fas fa-battery-half"></i></span></center></div>
+ <div style="display: none;" id="twitter" class="twitter">
+ 
+ <center ><img id="twitter_loading" class="twitter_loading" src="img/app_assets/twitter_loading.png" /></center>
+
+<div id="twitter_Frame">
+ <div class="twitter_header"   ><a href="#"><img style="width: 8%;margin: 15px;" src="img/app_assets/bar.png" /></a> <img style="width: 15%;position: absolute;right: 0;margin: 3px;" src="img/app_assets/logo.png" /></div>
+ <center><h1 style="color:white;text-shadow: 0 0 12px black;">Neler oluyor?</h1></center>
+ <textarea maxlength="50"  rows="4" cols="50" id="twitterpostarea" style=" resize: none;"  ></textarea>
+  
+	<div style="display:flex">
+	<img id="twitter_foto" src="#" style="display:none; width:350px; height:200px;	 margin-bottom:5px;margin-left: 10px;border-radius: 30px;" />
+	 </div>
+    <div class="tmenu"  >
+	<a id="tmenu_1" style="  border-top-left-radius: 30px;   border-top-right-radius: 30px;" href="javascript:TwitterFoto();">Fotoğraf ekle</a>
+	<a id="tmenu_2" style="border-radius:0px;" href="javascript:twitter_paylas('public');">Paylaş</a>
+	<a id="tmenu_3" style="border-radius:0px;" href="javascript:twitter_paylas('secret');">Gizli Paylaş</a>
+	<a id="tmenu_4" style="  border-bottom-left-radius: 30px; color:red;   border-bottom-right-radius: 30px;"  href="#">Vazgeç</a>
+	
+	</div>
+ 
+ </div>
+ 
+ 
+
+ </div>
+ 
+ 
+ <div class="alt">
+ <a href="#"><img src="img/call.png" style="width:20%;" /></a>
+ <a href="#"><img src="img/contacts.png" style="width:20%;" /></a>
+ <a href="#"><img src="img/sms.png" style="width:20%;" /></a>
+ 
+  <a href="#"><img src="img/mail.webp" style="width:20%;" /></a>
+ </div>
+ 
+  </div>
+ 
+ </div>
+ 
+  </div>
+ 
+		<div id="verticle"></div>
+	</body>
+
+
+	<script src="script.js" type="text/javascript"></script>
+	    <script src="twitter.js" type="text/javascript"></script>
+</html>
